@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  backend:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/problem-solver
+    depends_on:
+      - mongodb
+    networks:
+      - problem-solver-network
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - problem-solver-network
+
+  frontend:
+    build: ./client
+    ports:
+      - "3001:3000"
+    depends_on:
+      - backend
+    networks:
+      - problem-solver-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  problem-solver-network:
+    driver: bridge

@@ -1,0 +1,19 @@
+# Core Python Dependencies
+numpy==1.22.0
+pandas==1.4.1
+scikit-learn==1.0.2
+tensorflow==2.8.0
+torch==1.10.2
+transformers==4.16.2
+nltk==3.7
+
+# Web Frameworks
+fastapi==0.75.0
+uvicorn==0.17.6
+
+# Database
+pymongo==4.3.3
+
+# Machine Learning
+scipy==1.8.0
+keras==2.8.0
